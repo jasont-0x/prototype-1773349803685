@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "Check your answers before sending your application" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukBackLink({ text: "Back", href: "javascript:history.back()" }) }}
+
+    <h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
+
+    {{ govukSummaryList({
+      rows: [
+      {
+        key: { text: "Who are you applying for?" },
+        value: { text: data["application-type"] if data["application-type"] else "Not answered" },
+        actions: {
+          items: [{
+            href: "/application-type",
+            text: "Change",
+            visuallyHiddenText: "who are you applying for?"
+          }]
+        }
+      },
+      {
+        key: { text: "Do you get any of these benefits or allowances?" },
+        value: { text: data["automatic-qualification"] if data["automatic-qualification"] else "Not answered" },
+        actions: {
+          items: [{
+            href: "/automatic-qualification",
+            text: "Change",
+            visuallyHiddenText: "do you get any of these benefits or allowances?"
+          }]
+        }
+      },
+      {
+        key: { text: "Do you have difficulty walking or cannot walk?" },
+        value: { text: data["mobility-difficulty"] if data["mobility-difficulty"] else "Not answered" },
+        actions: {
+          items: [{
+            href: "/mobility-difficulty",
+            text: "Change",
+            visuallyHiddenText: "do you have difficulty walking or cannot walk?"
+          }]
+        }
+      },
+      {
+        key: { text: "What is your full name?" },
+        value: { text: data["full-name"] if data["full-name"] else "Not answered" },
+        actions: {
+          items: [{
+            href: "/full-name",
+            text: "Change",
+            visuallyHiddenText: "what is your full name?"
+          }]
+        }
+      },
+      {
+        key: { text: "What is your date of birth?" },
+        value: { text: data["date-of-birth"] if data["date-of-birth"] else "Not answered" },
+        actions: {
+          items: [{
+            href: "/date-of-birth",
+            text: "Change",
+            visuallyHiddenText: "what is your date of birth?"
+          }]
+        }
+      }
+      ]
+    }) }}
+
+    <form method="post" novalidate>
+      {{ govukButton({ text: "Confirm and send" }) }}
+    </form>
+
+  </div>
+</div>
+{% endblock %}
