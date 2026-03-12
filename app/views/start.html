@@ -1,0 +1,25 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "Apply for a Blue Badge" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Apply for a Blue Badge</h1>
+    <p class="govuk-body">Use this service to apply for a Blue Badge if you have a disability or health condition that affects your mobility.</p>
+    <p class="govuk-body">You will need:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>proof of identity (birth certificate, passport or driving licence)</li>
+      <li>proof of address (utility bill or bank statement)</li>
+      <li>evidence of your disability or health condition</li>
+      <li>a recent digital photo</li>
+    </ul>
+    <p class="govuk-body">It takes around <strong>15 minutes</strong> to complete.</p>
+    {{ govukButton({
+      text: "Start now",
+      href: "/application-type",
+      isStartButton: true
+    }) }}
+  </div>
+</div>
+{% endblock %}
